@@ -18,7 +18,9 @@ from setuptools import find_packages, setup, Command
 
 # Package meta-data.
 NAME = "fynesse"
-DESCRIPTION = "Template files for performing fynesse pipeline data analysis with python."
+DESCRIPTION = (
+    "Template files for performing fynesse pipeline data analysis with python."
+)
 URL = "https://github.com/lawrennd/fynesse_template"
 EMAIL = "emal@domain.here"
 AUTHOR = "Givenname Familyname"
@@ -27,12 +29,18 @@ VERSION = "0.1.0"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    "pandas", "numpy", "jupyter", "matplotlib", 
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "requests",
+    "pymysql",
 ]
 
 # What packages are optional?
 EXTRAS = {
-    "interactive html plots": ["bokeh",],
+    "interactive html plots": [
+        "bokeh",
+    ],
 }
 
 PACKAGE_DATA = {"fynesse": ["defaults.yml"]}
@@ -71,7 +79,7 @@ class UploadCommand(Command):
     @staticmethod
     def status(s):
         """Prints things in bold."""
-        print('\033[1m{0}\033[0m'.format(s))
+        print("\033[1m{0}\033[0m".format(s))
 
     def initialize_options(self):
         pass
@@ -114,7 +122,6 @@ setup(
     package_data=PACKAGE_DATA,
     # If your package is a single module, use this instead of "packages":
     # py_modules=["mypackage"],
-
     # entry_points={
     #     "console_scripts": ["mycli=mymodule:cli"],
     # },
@@ -130,7 +137,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: Implementation :: CPython",
-        "Programming Language :: Python :: Implementation :: PyPy"
+        "Programming Language :: Python :: Implementation :: PyPy",
     ],
     # $ setup.py publish support.
     cmdclass={
